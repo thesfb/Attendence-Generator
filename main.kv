@@ -1,0 +1,63 @@
+# attendance.kv
+BoxLayout:
+    orientation: 'vertical'
+
+    GridLayout:
+        cols: 3
+        size_hint_y: None
+        height: "40dp"
+        spacing: "5dp"
+
+        MDLabel:
+            text: "Roll No"
+            font_size: "18sp"
+            halign: "center"
+
+        MDLabel:
+            text: "Name"
+            font_size: "18sp"
+            halign: "center"
+
+        MDLabel:
+            text: "Attendance"
+            font_size: "18sp"
+            halign: "center"
+
+    ScrollView:
+        size_hint_y: 0.7 
+
+        GridLayout:
+            id: student_grid
+            cols: 3
+            spacing: "5dp"
+            row_default_height: "40dp"
+            row_force_default: True
+            size_hint_y: None
+            height: self.minimum_height
+            padding: "10dp"
+
+    BoxLayout:
+        size_hint_y: 0.1 
+        spacing: "10dp"  
+
+        MDRaisedButton:
+            text: "Generate Attendance"
+            font_size: "18sp"
+            on_press: app.generate_pdf()
+            size_hint_x: None
+            width: "200dp"  
+
+        MDRaisedButton:
+            text: "Clear Attendance"
+            font_size: "18sp"
+            on_press: app.clear_attendance()
+            size_hint_x: None
+            width: "200dp" 
+
+        MDRaisedButton:
+            text: "All Present"
+            font_size: "18sp"
+            on_press: app.make_attendance()
+            size_hint_x: None
+            width: "200dp"  
+
